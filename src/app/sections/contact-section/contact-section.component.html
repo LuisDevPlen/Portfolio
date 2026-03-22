@@ -1,0 +1,98 @@
+<section id="contato" class="fp-section fp-section--surface">
+  <div class="fp-container">
+    <header class="fp-section__head">
+      <p class="fp-section__eyebrow fp-section__eyebrow--with-icon">
+        <i class="pi pi-id-card" aria-hidden="true"></i>
+        Contatos
+      </p>
+      <h2 class="fp-section__title fp-section__title--left">Entre em contato</h2>
+      <p class="fp-section__intro">Email, telefone, WhatsApp ou formulário — resposta em até um dia útil.</p>
+    </header>
+
+    <div class="fp-contact__grid">
+      <div class="fp-contact__aside">
+        <h3 class="fp-contact__aside-title">{{ profile.contactAsideTitle || 'Vamos falar?' }}</h3>
+        <p class="fp-contact__aside-text" *ngIf="profile.contactAsideText">{{ profile.contactAsideText }}</p>
+        <ul class="fp-contact__list">
+          <li class="fp-contact__item">
+            <span class="fp-contact__ic" aria-hidden="true"><i class="pi pi-envelope"></i></span>
+            <div>
+              <span class="fp-contact__label">Email</span>
+              <a class="fp-contact__value" [href]="mailtoLink">{{ profile.email }}</a>
+            </div>
+          </li>
+          <li class="fp-contact__item" *ngIf="profile.phone">
+            <span class="fp-contact__ic" aria-hidden="true"><i class="pi pi-phone"></i></span>
+            <div>
+              <span class="fp-contact__label">Telefone</span>
+              <a class="fp-contact__value" *ngIf="telLink" [href]="telLink">{{ profile.phone }}</a>
+              <span class="fp-contact__value" *ngIf="!telLink">{{ profile.phone }}</span>
+            </div>
+          </li>
+          <li class="fp-contact__item" *ngIf="whatsappLink">
+            <span class="fp-contact__ic fp-contact__ic--whatsapp" aria-hidden="true"><i class="pi pi-whatsapp"></i></span>
+            <div>
+              <span class="fp-contact__label">WhatsApp</span>
+              <a
+                class="fp-contact__value"
+                [href]="whatsappLink"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Abrir conversa no WhatsApp"
+                >{{ profile.phone }}</a>
+            </div>
+          </li>
+          <li class="fp-contact__item">
+            <span class="fp-contact__ic" aria-hidden="true"><i class="pi pi-map-marker"></i></span>
+            <div>
+              <span class="fp-contact__label">Localização</span>
+              <span class="fp-contact__value">{{ profile.location }}</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <form class="fp-contact__form" (ngSubmit)="onSubmit()" novalidate>
+        <div class="fp-form__field">
+          <label class="fp-form__label" for="fp-contact-name">Nome</label>
+          <input
+            id="fp-contact-name"
+            name="name"
+            type="text"
+            class="fp-form__input"
+            [(ngModel)]="formName"
+            placeholder="Seu nome"
+            autocomplete="name"
+            required
+          />
+        </div>
+        <div class="fp-form__field">
+          <label class="fp-form__label" for="fp-contact-email">Email</label>
+          <input
+            id="fp-contact-email"
+            name="email"
+            type="email"
+            class="fp-form__input"
+            [(ngModel)]="formEmail"
+            [placeholder]="profile.email"
+            autocomplete="email"
+            required
+          />
+        </div>
+        <div class="fp-form__field">
+          <label class="fp-form__label" for="fp-contact-msg">Mensagem</label>
+          <textarea
+            id="fp-contact-msg"
+            name="message"
+            class="fp-form__textarea"
+            [(ngModel)]="formMessage"
+            placeholder="Sua mensagem..."
+            rows="6"
+            required
+          ></textarea>
+        </div>
+        <button pButton pRipple type="submit" label="Enviar Mensagem" icon="pi pi-send" class="fp-form__submit"></button>
+      </form>
+    </div>
+  </div>
+</section>

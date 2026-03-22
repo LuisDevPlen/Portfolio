@@ -1,0 +1,23 @@
+<section id="sobre" class="fp-section fp-section--surface">
+  <div class="fp-container">
+    <header class="fp-section__head">
+      <p class="fp-section__eyebrow">Perfil</p>
+      <h2 class="fp-section__title fp-section__title--left">Sobre mim</h2>
+      <p class="fp-section__intro">Resumo profissional e áreas de atuação.</p>
+    </header>
+
+    <div class="fp-about__prose" *ngIf="paragraphs.length">
+      <p class="fp-about__p" *ngFor="let para of paragraphs">{{ para }}</p>
+    </div>
+
+    <div class="fp-features" *ngIf="features?.length">
+      <article class="fp-feature" *ngFor="let f of features">
+        <div class="fp-feature__icon-wrap" aria-hidden="true">
+          <i [class]="f.icon"></i>
+        </div>
+        <h3 class="fp-feature__title">{{ f.title }}</h3>
+        <p class="fp-feature__desc">{{ f.description }}</p>
+      </article>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+<section id="formacao" class="section folio-section folio-section--enterprise folio-section--spacious">
+  <div class="layout-container">
+    <p class="folio-section-eyebrow">Formação</p>
+    <h2 class="folio-section-title">Educação e certificações</h2>
+
+    <div class="folio-edu-list folio-edu-list--enterprise">
+      <p-card *ngFor="let ed of education" styleClass="folio-edu-card folio-edu-card--enterprise folio-interactive-card">
+        <div class="folio-edu-card__inner">
+          <div
+            class="folio-edu-card__icon"
+            [class.folio-edu-card__icon--cert]="ed.kind === 'certification' && !ed.logoUrl"
+            [class.folio-edu-card__icon--course]="ed.kind === 'course' && !ed.logoUrl"
+            [class.folio-edu-card__icon--logo]="ed.logoUrl"
+          >
+            <img
+              *ngIf="ed.logoUrl"
+              class="folio-edu-card__icon-img"
+              [src]="ed.logoUrl"
+              [alt]="'Logo ' + ed.institution"
+              width="133"
+              height="91"
+              loading="lazy"
+              decoding="async"
+            />
+            <i
+              *ngIf="!ed.logoUrl"
+              [class]="
+                ed.kind === 'certification'
+                  ? 'pi pi-verified'
+                  : ed.kind === 'course'
+                    ? 'pi pi-globe'
+                    : 'pi pi-graduation-cap'
+              "
+              aria-hidden="true"
+            ></i>
+          </div>
+          <div class="folio-edu-card__body">
+            <h3 class="folio-edu-card__degree">{{ ed.degree }}</h3>
+            <p class="folio-edu-card__inst">{{ ed.institution }}</p>
+            <p *ngIf="ed.detail" class="folio-edu-card__detail">{{ ed.detail }}</p>
+          </div>
+          <time class="folio-edu-period" [attr.datetime]="ed.period">{{ ed.period }}</time>
+        </div>
+      </p-card>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,103 @@
+<section id="inicio" class="fp-hero">
+  <div class="fp-container fp-hero__shell">
+    <div class="fp-hero__grid">
+      <div class="fp-hero__main">
+        <p class="fp-hero__eyebrow" *ngIf="profile.availableForWork">Disponível para novas oportunidades</p>
+
+        <h1 class="fp-hero__title">{{ profile.titleTagline }}</h1>
+
+        <p class="fp-hero__lead">{{ profile.headline }}</p>
+
+        <div class="fp-hero__toolbar">
+          <div class="fp-hero__cta-row">
+            <a
+              pButton
+              pRipple
+              href="#projetos"
+              label="Ver projetos"
+              icon="pi pi-folder-open"
+              class="fp-btn-primary"
+              (click)="scrollTo($event, 'projetos')"
+            ></a>
+            <a
+              pButton
+              pRipple
+              href="#contato"
+              label="Contatos"
+              icon="pi pi-id-card"
+              class="p-button-outlined fp-btn-secondary fp-btn-ghost"
+              (click)="scrollTo($event, 'contato')"
+            ></a>
+          </div>
+
+          <div class="fp-hero__social fp-hero__social--inline" aria-label="Redes sociais">
+            <a
+              *ngIf="profile.githubUrl"
+              [href]="profile.githubUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="fp-hero__social-btn"
+              aria-label="GitHub"
+            >
+              <i class="pi pi-github"></i>
+            </a>
+            <a
+              *ngIf="profile.linkedinUrl"
+              [href]="profile.linkedinUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="fp-hero__social-btn"
+              aria-label="LinkedIn"
+            >
+              <i class="pi pi-linkedin"></i>
+            </a>
+            <a [href]="'mailto:' + profile.email" class="fp-hero__social-btn" aria-label="Email">
+              <i class="pi pi-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="fp-hero__tech-track" *ngIf="stackTechIcons.length">
+          <div class="fp-hero__tech-head">
+            <span class="fp-hero__tech-label">Stack principal</span>
+          </div>
+          <div class="fp-hero__tech-scroll" tabindex="0">
+            <ul class="fp-hero__tech-list" role="list">
+              <li class="fp-hero__tech-item" *ngFor="let t of stackTechIcons" role="listitem">
+                <span class="fp-hero__tech-tile" [attr.title]="t.name">
+                  <img [src]="t.url" [alt]="techAlt(t.name)" width="28" height="28" loading="lazy" decoding="async" />
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <aside class="fp-hero__aside" aria-label="Apresentação visual">
+        <div class="fp-hero__photo-frame">
+          <img
+            *ngIf="profile.photoUrl"
+            class="fp-hero__photo"
+            [src]="profile.photoUrl"
+            [alt]="'Retrato de ' + profile.fullName"
+            width="480"
+            height="600"
+            loading="eager"
+            decoding="async"
+          />
+          <div *ngIf="!profile.photoUrl" class="fp-hero__photo-fallback" aria-hidden="true">{{ initials }}</div>
+        </div>
+        <p class="fp-hero__photo-caption" *ngIf="profile.location">
+          <i class="pi pi-map-marker" aria-hidden="true"></i>{{ profile.location }}
+        </p>
+      </aside>
+    </div>
+  </div>
+
+  <div class="fp-hero__scroll-wrap">
+    <button type="button" class="fp-hero__scroll" aria-label="Descer para a secção Sobre" (click)="scrollTo($event, 'sobre')">
+      <span class="fp-hero__scroll-text">Sobre mim</span>
+      <i class="pi pi-chevron-down" aria-hidden="true"></i>
+    </button>
+  </div>
+</section>

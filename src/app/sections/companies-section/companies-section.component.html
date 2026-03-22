@@ -1,0 +1,62 @@
+<section id="empresas" class="section folio-section folio-section--enterprise folio-section--spacious">
+  <div class="layout-container">
+    <p class="folio-section-eyebrow">Organizações</p>
+    <h2 class="folio-section-title">Experiência em contexto corporativo</h2>
+    <p class="folio-section-lead">
+      Organizações onde colaborei, com foco no impacto e no ecossistema tecnológico.
+    </p>
+
+    <div class="folio-companies-stack">
+      <p-card
+        *ngFor="let c of companies"
+        styleClass="folio-company-card folio-company-card--enterprise folio-interactive-card"
+      >
+        <div class="folio-company-card__top">
+          <div
+            class="folio-company-card__logo-wrap"
+            *ngIf="c.logoUrl; else companyAvatar"
+            [class.folio-company-card__logo-wrap--ondark]="c.logoOnDark"
+          >
+            <img
+              class="folio-company-card__logo-img"
+              [src]="c.logoUrl"
+              [alt]="'Logo ' + c.name"
+              width="160"
+              height="64"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <ng-template #companyAvatar>
+            <p-avatar [label]="c.shortName" size="large" shape="circle" styleClass="folio-company-avatar-enterprise"></p-avatar>
+          </ng-template>
+          <div class="folio-company-card__meta">
+            <h3 class="folio-company-card__name">{{ c.name }}</h3>
+            <span class="folio-company-card__sector">
+              <i class="pi pi-briefcase folio-company-card__sector-ic" aria-hidden="true"></i>{{ c.sector }}
+            </span>
+            <p class="folio-company-card__cnpj" *ngIf="c.cnpj">CNPJ {{ c.cnpj }}</p>
+            <p class="folio-company-card__period">
+              <i class="pi pi-calendar" aria-hidden="true"></i>{{ c.periodLabel }}
+            </p>
+          </div>
+        </div>
+        <p class="folio-company-card__summary">{{ c.summary }}</p>
+        <div class="folio-company-card__chips" *ngIf="c.technologies?.length">
+          <p-chip *ngFor="let tech of c.technologies" [label]="tech" styleClass="folio-exp-chip-enterprise"></p-chip>
+        </div>
+        <a
+          *ngIf="c.websiteUrl"
+          pButton
+          pRipple
+          [href]="c.websiteUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          label="Site da organização"
+          icon="pi pi-external-link"
+          class="p-button-text p-button-sm folio-link-btn-enterprise folio-icon-btn--lift"
+        ></a>
+      </p-card>
+    </div>
+  </div>
+</section>

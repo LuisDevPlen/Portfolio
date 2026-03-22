@@ -1,0 +1,208 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.folio-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--folio-bg);
+}
+
+main {
+  flex: 1 1 auto;
+  width: 100%;
+}
+
+.folio-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: color-mix(in srgb, var(--folio-surface) 92%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--folio-border);
+  transition: box-shadow 0.2s ease;
+
+  &--scrolled {
+    box-shadow: 0 1px 0 rgba(15, 23, 42, 0.06), 0 12px 40px rgba(15, 23, 42, 0.06);
+  }
+}
+
+.folio-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 3.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  box-sizing: border-box;
+}
+
+.folio-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+}
+
+.folio-burger {
+  color: var(--folio-accent) !important;
+  flex-shrink: 0;
+}
+
+.folio-header__logo {
+  font-family: var(--folio-sans);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--folio-text);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: min(220px, 46vw);
+
+  &:hover {
+    color: var(--folio-accent);
+  }
+}
+
+.folio-header__status {
+  display: none;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--folio-accent);
+  border: 1px solid color-mix(in srgb, var(--folio-accent) 35%, transparent);
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 480px) {
+  .folio-header__status {
+    display: inline-block;
+  }
+}
+
+.folio-header__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 0.15rem;
+  flex-wrap: wrap;
+  max-width: 52rem;
+}
+
+.folio-header__nav-link {
+  font-family: var(--folio-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--folio-text-muted);
+  text-decoration: none;
+  padding: 0.4rem 0.55rem;
+  border-radius: 6px;
+  transition: color 0.15s ease, background 0.15s ease;
+
+  &:hover {
+    color: var(--folio-text);
+    background: color-mix(in srgb, var(--folio-accent) 8%, transparent);
+  }
+}
+
+.folio-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.folio-theme-btn {
+  color: var(--folio-text-muted) !important;
+}
+
+::ng-deep .folio-sidebar.p-sidebar {
+  max-width: min(100vw - 2rem, 300px);
+}
+
+.folio-sidebar__title {
+  font-family: var(--folio-sans);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.folio-sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+::ng-deep .folio-sidebar-link.p-button {
+  width: 100%;
+  justify-content: flex-start;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+::ng-deep .folio-scrolltop.p-scrolltop,
+::ng-deep .fp-scrolltop.p-scrolltop {
+  right: 1.25rem;
+  bottom: 1.25rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 10px;
+  background: #1e40af !important;
+  box-shadow: 0 8px 24px rgba(30, 64, 175, 0.35);
+}
+
+html.theme-dark ::ng-deep .fp-scrolltop.p-scrolltop {
+  background: #60a5fa !important;
+}
+
+.folio-footer {
+  margin-top: auto;
+  border-top: 1px solid var(--folio-border);
+  background: var(--folio-surface);
+  padding: 2rem 0;
+}
+
+.folio-footer__inner {
+  text-align: center;
+}
+
+.folio-footer__copy {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--folio-text-muted);
+  letter-spacing: 0.01em;
+}
+
+.folio-footer__note {
+  margin: 0.5rem 0 0;
+  font-size: 0.75rem;
+  color: var(--folio-text-muted);
+  opacity: 0.85;
+}
+
+::ng-deep .folio-toast.p-toast .p-toast-message {
+  border-radius: 10px;
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12);
+}
+
+html.theme-dark .folio-header {
+  background: color-mix(in srgb, var(--folio-surface) 88%, transparent);
+}
+
+html.theme-dark .folio-header__nav-link:hover {
+  background: rgba(255, 255, 255, 0.06);
+}

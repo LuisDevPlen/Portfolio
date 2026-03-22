@@ -5,7 +5,11 @@
   "projects": {
     "ClaProjetoView": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -18,12 +22,25 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "theme.css",
+                "input": "node_modules/primeng/resources/themes/lara-light-blue",
+                "output": "/themes/light"
+              },
+              {
+                "glob": "theme.css",
+                "input": "node_modules/primeng/resources/themes/lara-dark-blue",
+                "output": "/themes/dark"
+              }
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css",
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -37,8 +54,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
                 }
               ],
               "fileReplacements": [
@@ -85,17 +102,33 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "theme.css",
+                "input": "node_modules/primeng/resources/themes/lara-light-blue",
+                "output": "/themes/light"
+              },
+              {
+                "glob": "theme.css",
+                "input": "node_modules/primeng/resources/themes/lara-dark-blue",
+                "output": "/themes/dark"
+              }
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css",
+              "src/styles.scss"
             ],
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "08b8e95b-d054-4803-899b-e8e92445b31f"
   }
 }

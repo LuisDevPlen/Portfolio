@@ -1,0 +1,55 @@
+<section id="skills" class="section folio-section folio-section--skills folio-section--enterprise folio-section--spacious">
+  <div class="layout-container">
+    <p class="folio-section-eyebrow">Competências</p>
+    <h2 class="folio-section-title">Stack e versões</h2>
+    <p class="folio-section-lead" *ngIf="skillsIntro">{{ skillsIntro }}</p>
+
+    <p-accordion [multiple]="true" styleClass="folio-skills-accordion folio-skills-accordion--rich">
+      <p-accordionTab *ngFor="let group of categories">
+        <ng-template pTemplate="header">
+          <span class="folio-acc-header folio-acc-header--rich">
+            <span class="folio-acc-header__icon-box" aria-hidden="true">
+              <i [class]="group.icon + ' folio-acc-header__ic'"></i>
+            </span>
+            <span class="folio-acc-header__text-block">
+              <span class="folio-acc-header__text">{{ group.title }}</span>
+              <span class="folio-acc-header__preview" *ngIf="categoryTechPreview(group).length">
+                <span *ngFor="let tech of categoryTechPreview(group)" class="folio-tech-icon folio-tech-icon--header">
+                  <img
+                    [src]="tech.url"
+                    [alt]="techAlt(tech.name)"
+                    class="folio-tech-icon__img"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+              </span>
+            </span>
+          </span>
+        </ng-template>
+        <ul class="folio-skill-tiles">
+          <li *ngFor="let s of group.skills" class="folio-skill-tile folio-interactive-card" tabindex="0">
+            <div class="folio-skill-tile__brand">
+              <img
+                *ngIf="techUrl(s.name) as url"
+                [src]="url"
+                [alt]="techAlt(s.name)"
+                class="folio-skill-tile__logo"
+                loading="lazy"
+                width="40"
+                height="40"
+              />
+              <span *ngIf="!techUrl(s.name)" class="folio-skill-tile__mono" aria-hidden="true">{{ initials(s.name) }}</span>
+            </div>
+            <div class="folio-skill-tile__body">
+              <div class="folio-skill-tile__row">
+                <span class="folio-skill-tile__name">{{ s.name }}</span>
+                <span class="folio-skill-tile__version" *ngIf="s.version">{{ s.version }}</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </p-accordionTab>
+    </p-accordion>
+  </div>
+</section>

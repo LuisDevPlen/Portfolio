@@ -1,0 +1,33 @@
+<section id="experiencia" class="section folio-section folio-section--alt folio-section--enterprise folio-section--spacious">
+  <div class="layout-container">
+    <p class="folio-section-eyebrow">Experiência</p>
+    <h2 class="folio-section-title">Trajetória profissional</h2>
+
+    <div class="folio-exp-grid folio-exp-grid--enterprise" role="list" aria-label="Experiências profissionais">
+      <article class="folio-exp-grid__cell" *ngFor="let exp of experiences" role="listitem">
+        <p-card styleClass="folio-exp-card folio-exp-card--enterprise folio-interactive-card">
+          <div class="folio-exp-card__head">
+            <div class="folio-exp-card__titles">
+              <h3 class="folio-exp-card__job">{{ exp.title }}</h3>
+              <p class="folio-exp-card__company">
+                <i class="pi pi-building folio-exp-card__company-ic" aria-hidden="true"></i>{{ exp.company }}
+              </p>
+            </div>
+            <div class="folio-exp-card__meta">
+              <span class="folio-exp-card__period">
+                <i class="pi pi-clock folio-exp-card__period-ic" aria-hidden="true"></i>{{ exp.period }}
+              </span>
+              <p-tag *ngIf="exp.employmentType" [value]="exp.employmentType" severity="secondary" styleClass="folio-exp-type-tag"></p-tag>
+            </div>
+          </div>
+          <p class="folio-exp-card__desc">{{ exp.description }}</p>
+          <p-divider *ngIf="exp.tags?.length" layout="horizontal" type="solid" styleClass="folio-exp-divider"></p-divider>
+          <div class="folio-exp-card__tags" *ngIf="exp.tags?.length">
+            <span class="folio-exp-tags-label">Stack e práticas</span>
+            <p-chip *ngFor="let t of exp.tags" [label]="t" styleClass="folio-exp-chip-enterprise"></p-chip>
+          </div>
+        </p-card>
+      </article>
+    </div>
+  </div>
+</section>

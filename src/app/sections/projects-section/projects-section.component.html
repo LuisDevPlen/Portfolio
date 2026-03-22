@@ -1,0 +1,50 @@
+<section id="projetos" class="fp-section fp-section--muted">
+  <div class="fp-container">
+    <header class="fp-section__head">
+      <p class="fp-section__eyebrow">Portfólio</p>
+      <h2 class="fp-section__title fp-section__title--left">Projetos em destaque</h2>
+      <p class="fp-section__intro">Experiência em produto, setor público e integrações corporativas.</p>
+    </header>
+
+    <div class="fp-projects-grid fp-projects-grid--all" *ngIf="projects?.length">
+      <article class="fp-project" *ngFor="let p of projects">
+        <div class="fp-project__media" *ngIf="p.imageUrl">
+          <img
+            [src]="p.imageUrl"
+            [alt]="'Pré-visualização do projeto ' + p.title"
+            width="800"
+            height="500"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div class="fp-project__body">
+          <h3 class="fp-project__title">{{ p.title }}</h3>
+          <p class="fp-project__cat">{{ p.categoryLabel }}</p>
+          <p class="fp-project__desc">{{ p.description }}</p>
+          <div class="fp-project__tags">
+            <span class="fp-project__tag" *ngFor="let t of p.technologies">{{ t }}</span>
+          </div>
+          <div class="fp-project__links">
+            <a *ngIf="p.liveUrl" [href]="p.liveUrl" class="fp-project__link" target="_blank" rel="noopener noreferrer">
+              <i class="pi pi-external-link" aria-hidden="true"></i>
+              Live Demo
+            </a>
+            <a
+              *ngIf="codeUrl(p)"
+              [href]="codeUrl(p)!"
+              class="fp-project__link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="pi pi-github" aria-hidden="true"></i>
+              Código
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <p class="fp-projects-empty" *ngIf="!projects?.length">Não há projetos para mostrar.</p>
+  </div>
+</section>

@@ -1,0 +1,83 @@
+/* Tema corporativo: neutros, acento contido, hierarquia clara (referência: sites institucionais / consultoria) */
+
+:root {
+  --folio-bg: #f8fafc;
+  --folio-bg-alt: #f1f5f9;
+  --folio-surface: #ffffff;
+  --folio-text: #0f172a;
+  --folio-text-muted: #475569;
+  --folio-border: #e2e8f0;
+  --folio-accent: #1e40af;
+  --folio-accent-muted: #3b82f6;
+  /* Alias legado (shared SCSS) */
+  --folio-green: var(--folio-accent);
+  --folio-green-hover: #1e3a8a;
+  --folio-green-muted: var(--folio-accent-muted);
+  --folio-teal: var(--folio-accent-muted);
+  --folio-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --folio-serif: 'Inter', var(--folio-sans);
+  --folio-mono: ui-monospace, 'Cascadia Code', 'Fira Code', monospace;
+
+  --primary-color: var(--folio-accent) !important;
+  --primary-color-text: #ffffff !important;
+}
+
+html.theme-dark {
+  --folio-bg: #0b1120;
+  --folio-bg-alt: #111827;
+  --folio-surface: #111827;
+  --folio-text: #f1f5f9;
+  --folio-text-muted: #94a3b8;
+  --folio-border: #1e293b;
+  --folio-accent: #60a5fa;
+  --folio-accent-muted: #93c5fd;
+  --folio-green: var(--folio-accent);
+  --folio-green-hover: #93c5fd;
+  --folio-green-muted: var(--folio-accent-muted);
+  --folio-teal: var(--folio-accent-muted);
+}
+
+.folio-section-eyebrow {
+  display: block;
+  font-family: var(--folio-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--folio-accent);
+  margin: 0 0 0.5rem;
+}
+
+.folio-section-title {
+  font-family: var(--folio-sans);
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 700;
+  color: var(--folio-text);
+  margin: 0 0 0.65rem;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.folio-section-lead {
+  font-family: var(--folio-sans);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--folio-text-muted);
+  max-width: 42rem;
+  margin: 0 0 clamp(1.75rem, 4vw, 2.5rem);
+
+  a {
+    color: var(--folio-accent);
+    font-weight: 500;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Legado: secções antigas que ainda usem .folio-section-label */
+.folio-section-label {
+  @extend .folio-section-eyebrow;
+}
