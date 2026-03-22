@@ -29,19 +29,13 @@ export class AppComponent implements OnInit {
 
   mobileNavOpen = false;
   scrolled = false;
-  darkMode = false;
   isMobileNav = false;
 
   constructor(private readonly theme: ThemeService) {}
 
   ngOnInit(): void {
     this.theme.init();
-    this.theme.dark$.subscribe((d) => (this.darkMode = d));
     this.updateMobileNavFlag();
-  }
-
-  toggleTheme(): void {
-    this.theme.toggle();
   }
 
   @HostListener('window:scroll')

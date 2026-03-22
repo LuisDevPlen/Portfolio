@@ -26,18 +26,6 @@
           >
         </div>
       </nav>
-
-      <div class="fp-header__actions">
-        <button
-          pButton
-          pRipple
-          type="button"
-          [icon]="darkMode ? 'pi pi-sun' : 'pi pi-moon'"
-          class="p-button-rounded p-button-text fp-theme-btn"
-          [attr.aria-label]="darkMode ? 'Ativar tema claro' : 'Ativar tema escuro'"
-          (click)="toggleTheme()"
-        ></button>
-      </div>
     </div>
   </header>
 
@@ -76,7 +64,7 @@
       [highlights]="profile.highlights"
     ></app-about-section>
     <app-experience-section [experiences]="profile.experiences"></app-experience-section>
-    <app-projects-section [projects]="profile.projects" [fallbackGithubUrl]="profile.githubUrl"></app-projects-section>
+    <app-projects-section [projects]="profile.projects"></app-projects-section>
     <app-skills-section [categories]="profile.skillCategories" [skillsIntro]="profile.skillsIntro"></app-skills-section>
     <app-companies-section [companies]="profile.companies"></app-companies-section>
     <app-education-section [education]="profile.education"></app-education-section>

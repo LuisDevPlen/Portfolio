@@ -25,20 +25,10 @@
           <div class="fp-project__tags">
             <span class="fp-project__tag" *ngFor="let t of p.technologies">{{ t }}</span>
           </div>
-          <div class="fp-project__links">
-            <a *ngIf="p.liveUrl" [href]="p.liveUrl" class="fp-project__link" target="_blank" rel="noopener noreferrer">
+          <div class="fp-project__links" *ngIf="p.liveUrl">
+            <a [href]="p.liveUrl" class="fp-project__link" target="_blank" rel="noopener noreferrer">
               <i class="pi pi-external-link" aria-hidden="true"></i>
               Live Demo
-            </a>
-            <a
-              *ngIf="codeUrl(p)"
-              [href]="codeUrl(p)!"
-              class="fp-project__link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i class="pi pi-github" aria-hidden="true"></i>
-              Código
             </a>
           </div>
         </div>

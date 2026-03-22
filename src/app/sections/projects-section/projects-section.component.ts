@@ -7,14 +7,4 @@ import { ProjectItem } from '../../models/portfolio.model';
 })
 export class ProjectsSectionComponent {
   @Input() projects!: ProjectItem[];
-  /** Repositório por omissão quando o projeto não tem `githubUrl`. */
-  @Input() fallbackGithubUrl?: string;
-
-  codeUrl(p: ProjectItem): string | null {
-    const u = p.githubUrl?.trim();
-    if (u) {
-      return u;
-    }
-    return this.fallbackGithubUrl?.trim() || null;
-  }
 }
