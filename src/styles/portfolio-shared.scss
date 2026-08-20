@@ -2657,6 +2657,11 @@ html.theme-dark .folio-interactive-card.p-card:hover {
   letter-spacing: 0.02em;
 }
 
+.folio-skill-tile__glyph {
+  font-size: 1.35rem;
+  color: var(--folio-accent);
+}
+
 .folio-skill-tile__body {
   flex: 1;
   min-width: 0;

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Profile } from '../../models/portfolio.model';
-import { computeInitials } from '../../models/portfolio.utils';
+import { computeInitials, whatsappLink } from '../../models/portfolio.utils';
 import { getTechIconUrl, techIconAlt } from '../../utils/tech-icons';
 
 export interface HeroTechIcon {
@@ -36,6 +36,10 @@ export class HeroSectionComponent {
 
   get initials(): string {
     return computeInitials(this.profile?.fullName || '');
+  }
+
+  get whatsappUrl(): string | null {
+    return whatsappLink(this.profile?.phone);
   }
 
   scrollTo(ev: Event, id: string): void {

@@ -45,6 +45,22 @@ export function skillPercent(skill: { percent?: number; level?: SkillLevel }): n
  * quando não há logótipo/foto disponível.
  * @param stripParens remove texto entre parênteses antes de calcular as iniciais.
  */
+/** Código de país (Brasil) usado quando o telefone não o inclui já. */
+const BR_COUNTRY_CODE = '55';
+
+/** Link `https://wa.me/<dígitos>` a partir do telefone de exibição (ex.: (34) 9 9808-7602). */
+export function whatsappLink(phone?: string): string | null {
+  if (!phone?.trim()) {
+    return null;
+  }
+  const digits = phone.replace(/\D/g, '');
+  if (!digits) {
+    return null;
+  }
+  const intl = digits.startsWith(BR_COUNTRY_CODE) ? digits : BR_COUNTRY_CODE + digits;
+  return `https://wa.me/${intl}`;
+}
+
 export function computeInitials(text: string, stripParens = false): string {
   const cleaned = stripParens ? text.replace(/\([^)]*\)/g, '') : text;
   const parts = cleaned.trim().split(/\s+/).filter(Boolean);

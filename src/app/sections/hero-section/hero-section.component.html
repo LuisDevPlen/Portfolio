@@ -28,9 +28,29 @@
               class="p-button-outlined fp-btn-secondary fp-btn-ghost"
               (click)="scrollTo($event, 'contato')"
             ></a>
+            <a
+              *ngIf="profile.cvUrl"
+              pButton
+              pRipple
+              [href]="profile.cvUrl"
+              download
+              label="Baixar CV"
+              icon="pi pi-download"
+              class="p-button-outlined fp-btn-secondary fp-btn-ghost"
+            ></a>
           </div>
 
           <div class="fp-hero__social fp-hero__social--inline" aria-label="Redes sociais">
+            <a
+              *ngIf="whatsappUrl"
+              [href]="whatsappUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="fp-hero__social-btn"
+              aria-label="WhatsApp"
+            >
+              <i class="pi pi-whatsapp"></i>
+            </a>
             <a
               *ngIf="profile.githubUrl"
               [href]="profile.githubUrl"

@@ -1,8 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Profile } from '../../models/portfolio.model';
-
-/** Código de país (Brasil) usado quando o telefone não o inclui já. */
-const BR_COUNTRY_CODE = '55';
+import { whatsappLink } from '../../models/portfolio.utils';
 
 @Component({
   selector: 'app-contact-section',
@@ -19,28 +17,18 @@ export class ContactSectionComponent {
     return `mailto:${this.profile.email}`;
   }
 
-  /** Dígitos com código do país (ex.: 5534998087602) para tel e WhatsApp. */
-  private phoneDigitsInternational(): string | null {
+  get telLink(): string | null {
     const phone = this.profile?.phone;
     if (!phone?.trim()) {
       return null;
     }
-    const d = phone.replace(/\D/g, '');
-    if (!d) {
-      return null;
-    }
-    return d.startsWith(BR_COUNTRY_CODE) ? d : BR_COUNTRY_CODE + d;
-  }
-
-  get telLink(): string | null {
-    const intl = this.phoneDigitsInternational();
-    return intl ? `tel:+${intl}` : null;
+    const digits = phone.replace(/\D/g, '');
+    return digits ? `tel:+${digits.startsWith('55') ? digits : '55' + digits}` : null;
   }
 
   /** Abre conversa no WhatsApp (app ou web). */
   get whatsappLink(): string | null {
-    const intl = this.phoneDigitsInternational();
-    return intl ? `https://wa.me/${intl}` : null;
+    return whatsappLink(this.profile?.phone);
   }
 
   onSubmit(): void {

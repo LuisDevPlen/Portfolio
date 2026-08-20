@@ -35,6 +35,15 @@ const HEX_BY_SLUG: Record<string, string> = {
   hibernate: '59666C',
   mermaid: 'FF3670',
   sonar: '4E9BCD',
+  react: '61DAFB',
+  nextdotjs: '000000',
+  mongodb: '47A248',
+  jsonwebtokens: '000000',
+  apachekafka: '231F20',
+  githubcopilot: '000000',
+  claude: 'D97757',
+  langchain: '1C3C3C',
+  cursor: '000000',
 };
 
 /** Slug interno → slug na URL do CDN (quando difere do ficheiro npm). */
@@ -54,6 +63,15 @@ const DEVICON_FILE_BY_SLUG: Record<string, string> = {
   amazonaws: 'amazonwebservices/amazonwebservices-line-wordmark.svg',
   microsoftazure: 'azure/azure-original.svg',
   azuredevops: 'azuredevops/azuredevops-original.svg',
+};
+
+/**
+ * Slug → URL direta (Simple Icons via jsdelivr npm). Usado quando o slug não existe
+ * no CDN cdn.simpleicons.org (ex.: «openai» devolve 404 nesse edge). O SVG do pacote
+ * npm já vem na cor oficial da marca.
+ */
+const DIRECT_URL_BY_SLUG: Record<string, string> = {
+  openai: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/openai.svg',
 };
 
 /** Nome normalizado → slug interno (chave de HEX / Devicon / alias) */
@@ -122,6 +140,22 @@ const SLUG_BY_KEY: Record<string, string> = {
   solid: 'sonar',
   web: 'swagger',
   api: 'swagger',
+  react: 'react',
+  'next.js': 'nextdotjs',
+  nextjs: 'nextdotjs',
+  mongodb: 'mongodb',
+  jwt: 'jsonwebtokens',
+  kafka: 'apachekafka',
+  copilot: 'githubcopilot',
+  githubcopilot: 'githubcopilot',
+  claude: 'claude',
+  langchain: 'langchain',
+  openai: 'openai',
+  'openai api': 'openai',
+  'azure openai': 'openai',
+  chatgpt: 'openai',
+  cursor: 'cursor',
+  'cursor ai': 'cursor',
 };
 
 function normalizeToken(t: string): string {
@@ -200,6 +234,11 @@ export function getTechIconUrl(label: string): string | undefined {
     return undefined;
   }
 
+  const directUrl = DIRECT_URL_BY_SLUG[slug];
+  if (directUrl) {
+    return directUrl;
+  }
+
   const devPath = DEVICON_FILE_BY_SLUG[slug];
   if (devPath) {
     return `${DEVICON_BASE}/${devPath}`;
@@ -212,6 +251,28 @@ export function getTechIconUrl(label: string): string | undefined {
   }
 
   return `${COLORED_SI_CDN}/${cdnSlug}/${hex}`;
+}
+
+/**
+ * Conceitos sem logotipo de marca oficial → ícone PrimeIcons representativo.
+ * Usado como fallback quando `getTechIconUrl` não encontra um logotipo real.
+ */
+const CONCEPT_ICON_RULES: Array<{ test: RegExp; icon: string }> = [
+  { test: /cqrs|event[-\s]?driven/i, icon: 'pi pi-sync' },
+  { test: /microservi/i, icon: 'pi pi-share-alt' },
+  { test: /design patterns?/i, icon: 'pi pi-clone' },
+  { test: /scrum|kanban|agile/i, icon: 'pi pi-table' },
+  { test: /observabilidade|serilog|monitor/i, icon: 'pi pi-chart-line' },
+  { test: /mcp|model context protocol|ai agents?/i, icon: 'pi pi-sitemap' },
+  { test: /prompt engineering|\brag\b|retrieval/i, icon: 'pi pi-comments' },
+];
+
+export function getConceptIconClass(label: string): string | undefined {
+  if (!label?.trim()) {
+    return undefined;
+  }
+  const rule = CONCEPT_ICON_RULES.find((r) => r.test.test(label));
+  return rule?.icon;
 }
 
 export function techIconAlt(name: string): string {

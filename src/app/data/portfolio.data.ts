@@ -51,9 +51,19 @@ export const PROFILE: Profile = {
   ],
 
   skillsIntro:
-    'Trabalhei com as versões indicadas (e equivalentes de cada época) em contexto profissional entre 2018 e 2025.',
+    'Trabalhei com as versões indicadas (e equivalentes de cada época) em contexto profissional entre 2018 e 2026.',
 
   projects: [
+    {
+      id: 'dino-eats-delivery',
+      title: 'Dino Eats Delivery',
+      category: 'saas',
+      categoryLabel: 'SaaS / Delivery',
+      description:
+        'Plataforma de delivery para restaurantes e consumidores de Uberaba, com pedidos, cardápio digital e gestão de entregas. Atuação como desenvolvedor Full Stack.',
+      technologies: ['Angular', 'TypeScript', '.NET', 'PostgreSQL'],
+      highlight: true,
+    },
     {
       id: 'smartz',
       title: 'SmartZ — Multi-tenant Business Platform',
@@ -281,13 +291,16 @@ export const PROFILE: Profile = {
     {
       categoryId: 'ai',
       title: 'IA & LLMs',
-      icon: 'pi pi-sparkles',
+      icon: 'pi pi-bolt',
       skills: [
         { name: 'OpenAI API / Azure OpenAI' },
         { name: 'AI Agents & MCP (Model Context Protocol)' },
         { name: 'Prompt Engineering & RAG' },
         { name: 'LangChain / Semantic Kernel' },
-        { name: 'Cursor AI, Claude, GitHub Copilot, ChatGPT' },
+        { name: 'Cursor AI' },
+        { name: 'Claude' },
+        { name: 'GitHub Copilot' },
+        { name: 'ChatGPT' },
       ],
     },
   ],
