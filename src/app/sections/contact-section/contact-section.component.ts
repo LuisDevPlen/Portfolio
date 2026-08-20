@@ -1,6 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { Profile } from '../../models/portfolio.model';
 
+/** Código de país (Brasil) usado quando o telefone não o inclui já. */
+const BR_COUNTRY_CODE = '55';
+
 @Component({
   selector: 'app-contact-section',
   templateUrl: './contact-section.component.html',
@@ -26,7 +29,7 @@ export class ContactSectionComponent {
     if (!d) {
       return null;
     }
-    return d.startsWith('55') ? d : '55' + d;
+    return d.startsWith(BR_COUNTRY_CODE) ? d : BR_COUNTRY_CODE + d;
   }
 
   get telLink(): string | null {

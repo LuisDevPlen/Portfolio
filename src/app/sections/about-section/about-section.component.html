@@ -1,17 +1,17 @@
 <section id="sobre" class="fp-section fp-section--surface">
   <div class="fp-container">
-    <header class="fp-section__head">
+    <header class="fp-section__head" appRevealOnScroll>
       <p class="fp-section__eyebrow">Perfil</p>
       <h2 class="fp-section__title fp-section__title--left">Sobre mim</h2>
       <p class="fp-section__intro">Resumo profissional e áreas de atuação.</p>
     </header>
 
-    <div class="fp-about__prose" *ngIf="paragraphs.length">
+    <div class="fp-about__prose" *ngIf="paragraphs.length" appRevealOnScroll>
       <p class="fp-about__p" *ngFor="let para of paragraphs">{{ para }}</p>
     </div>
 
     <div class="fp-features" *ngIf="features?.length">
-      <article class="fp-feature" *ngFor="let f of features">
+      <article class="fp-feature" *ngFor="let f of features; let i = index" appRevealOnScroll [style.transition-delay.ms]="(i % 6) * 70">
         <div class="fp-feature__icon-wrap" aria-hidden="true">
           <i [class]="f.icon"></i>
         </div>

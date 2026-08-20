@@ -1,5 +1,5 @@
 /**
- * Dados do portfólio — alinhados ao PDF «Currículo - Luis Augusto-Atualizado (3) (1).pdf».
+ * Dados do portfólio — alinhados ao currículo atualizado (2026).
  * Coloque o PDF em `src/assets/cv.pdf` se quiser o botão «Baixar CV» a apontar para um ficheiro local.
  */
 
@@ -7,10 +7,10 @@ import { Profile } from '../models/portfolio.model';
 
 export const PROFILE: Profile = {
   fullName: 'Luís Augusto Alves Custódio',
-  titleTagline: 'Full Stack Developer · Automação RPA',
+  titleTagline: 'Full Stack Developer · .NET · C# · Java · Angular',
   headline:
-    'Mais de 7 anos a construir e evoluir sistemas corporativos — web, integrações e APIs — com foco em qualidade, ' +
-    'escalabilidade e boas práticas (TDD, SOLID, Clean Code).',
+    'Mais de 7 anos a construir e evoluir sistemas corporativos de alta criticidade — arquitetura, APIs e integrações — ' +
+    'com foco em qualidade, escalabilidade e boas práticas (DDD, SOLID, Clean Code, TDD).',
   location: 'Uberaba, MG · Brasil · disponível remoto',
   photoUrl: 'assets/profile-photo.png',
   roleTags: [
@@ -24,14 +24,15 @@ export const PROFILE: Profile = {
     'Oracle',
     'PostgreSQL',
     'Docker',
+    'Azure DevOps',
   ],
   summary: '',
   aboutParagraphs: [
-    'Desenvolvedor Full Stack com mais de 7 anos em desenvolvimento web, com atuação remota. Trabalha com ' +
-      'programação orientada a objetos e funcional (C#, Java, Python, TypeScript, JavaScript), SQL, automação de processos e integração ' +
-      'de sistemas, pautando-se por TDD, SOLID e clean code, com foco em qualidade, escalabilidade e manutenibilidade. Domina Angular e ' +
-      'PrimeNG, Java e C#/.NET (ASP.NET, Web API, EF), REST, SOAP e MNI, PostgreSQL, SQL Server e Oracle, RabbitMQ, Docker, Kubernetes, ' +
-      'AWS e fluxos com Git, GitLab e GitHub. Disponível para novas oportunidades em regime remoto.',
+    'Desenvolvedor Full Stack com mais de 7 anos de experiência em C#, .NET, ASP.NET, Java, Angular, TypeScript e ' +
+      'JavaScript, atuando em sistemas corporativos de alta criticidade. Experiência em arquitetura com DDD, SOLID, ' +
+      'Clean Code e TDD, desenvolvimento de RESTful APIs, integração entre sistemas (REST/SOAP), CI/CD, ' +
+      'Docker/Kubernetes, SQL Server, PostgreSQL, Oracle e RabbitMQ em ambientes AWS e Azure DevOps. Foco em ' +
+      'evolução de sistemas legados, performance e design de APIs. Disponível para início imediato em regime remoto.',
   ],
   email: 'luisaugustoalves13@gmail.com',
   phone: '(34) 9 9808-7602',
@@ -41,7 +42,7 @@ export const PROFILE: Profile = {
   availableForWork: true,
   statusCodeTag: 'status: open_to_work',
 
-  languages: [{ name: 'Inglês', level: 'Intermediário' }],
+  languages: [{ name: 'Inglês', level: 'Intermediário (leitura técnica avançada)' }],
 
   highlights: [
     { label: 'Anos de experiência', value: '7+', icon: 'pi pi-calendar' },
@@ -55,12 +56,22 @@ export const PROFILE: Profile = {
   projects: [
     {
       id: 'smartz',
-      title: 'SmartZ',
+      title: 'SmartZ — Multi-tenant Business Platform',
       category: 'saas',
       categoryLabel: 'SaaS / Produto',
       description:
-        'Projeto destinado a atender diversos clientes conforme regras de negócio. Atuação como desenvolvedor Full Stack.',
+        'Plataforma multi-cliente baseada em regras de negócio configuráveis para atendimento a diversos clientes. Atuação como desenvolvedor Full Stack.',
       technologies: ['Angular', 'TypeScript', '.NET', 'PostgreSQL'],
+      highlight: true,
+    },
+    {
+      id: 'facial-ai',
+      title: 'Plataforma de Análise Facial com IA',
+      category: 'ai',
+      categoryLabel: 'Inteligência Artificial',
+      description:
+        'Plataforma de análise facial com IA integrada a APIs de Computer Vision, para processamento de imagens, diagnósticos estéticos, recomendações personalizadas e simulação visual de procedimentos.',
+      technologies: ['.NET', 'Angular', 'Computer Vision', 'OpenAI API'],
       highlight: true,
     },
     {
@@ -69,7 +80,7 @@ export const PROFILE: Profile = {
       category: 'gov',
       categoryLabel: 'Setor público',
       description:
-        'Gestão de processos judiciais: correções, ajustes técnicos e adequações funcionais. Atuação Full Stack na Spassu.',
+        'Gestão de processos judiciais eletrônicos: correções, ajustes técnicos e adequações funcionais. Atuação Full Stack na Spassu.',
       technologies: ['Java', 'Angular', 'PostgreSQL', 'MNI', 'SOAP'],
     },
     {
@@ -112,14 +123,14 @@ export const PROFILE: Profile = {
 
   companies: [
     {
-      id: 'cla',
-      name: 'CLA Tecnologia',
-      shortName: 'CLA',
-      sector: 'Prestação de serviços · PJ',
+      id: 'nexion',
+      name: 'Nexion Tecnologia',
+      shortName: 'NX',
+      sector: 'Prestação de serviços · PJ · Consultoria TOTVS (OFICINA 5)',
       periodLabel: 'Set 2024 — Presente',
       summary:
-        'Soluções tecnológicas sob demanda: análise, correção e evolução de sistemas, novas funcionalidades, integrações e performance.',
-      technologies: ['C#', '.NET', 'EF', 'Angular', 'PrimeNG', 'PostgreSQL', 'SQL Server', 'Oracle', 'REST', 'SOAP', 'Git', 'GitLab', 'Jira'],
+        'Soluções tecnológicas sob demanda em modelo PJ: análise, correção e evolução de sistemas corporativos, novas funcionalidades, integração entre sistemas e melhoria de performance, aplicando autenticação, autorização e boas práticas de engenharia de software.',
+      technologies: ['C#', '.NET', 'EF', 'Angular', 'PrimeNG', 'PostgreSQL', 'SQL Server', 'Oracle', 'REST', 'SOAP', 'CI/CD', 'Git', 'GitLab', 'Jira'],
     },
     {
       id: 'spassu',
@@ -128,11 +139,24 @@ export const PROFILE: Profile = {
       sector: 'Tecnologia / Software',
       periodLabel: 'Nov 2023 — Ago 2024',
       summary:
-        'Sustentação e evolução de sistemas corporativos: incidentes, requisições e issues; apuração técnica, correções, soluções de contorno e melhoria contínua.',
-      technologies: ['Java', 'Angular', 'C#', 'PostgreSQL', 'Docker', 'Kubernetes', 'AWS', 'RabbitMQ', 'MNI', 'SOAP'],
+        'Sustentação e evolução Full Stack de sistemas corporativos Java e C#: incidentes, requisições e issues; apuração técnica, correções e soluções de contorno, com integração via SOAP/MNI, Docker, Kubernetes, RabbitMQ, AWS e Azure DevOps.',
+      technologies: ['Java', 'Angular', 'C#', 'PostgreSQL', 'Docker', 'Kubernetes', 'AWS', 'RabbitMQ', 'MNI', 'SOAP', 'Elastic Stack (Kibana)'],
       logoUrl: 'assets/logos/companies/spassu.png',
       websiteUrl: 'https://www.spassu.com.br/',
       cnpj: '39.273.768/0001-89',
+    },
+    {
+      id: 'extreme',
+      name: 'Extreme Digital Solutions',
+      shortName: 'ED',
+      sector: 'Tecnologia / Software',
+      periodLabel: 'Jun 2023 — Out 2023',
+      summary:
+        'Sustentação e evolução Full Stack de sistemas corporativos: incidentes, requisições e melhoria contínua de fluxos. Apuração técnica, correções e evoluções funcionais com integração REST/SOAP/MNI em ambiente containerizado com CI/CD.',
+      technologies: ['Java', 'JSF', 'Angular', 'PostgreSQL', 'Docker', 'Kubernetes', 'AWS', 'RabbitMQ', 'MNI', 'REST', 'Elastic Stack (Kibana)'],
+      logoUrl: 'assets/logos/companies/extreme.png',
+      websiteUrl: 'https://www.extremedigital.com.br/',
+      cnpj: '14.139.773/0001-68',
     },
     {
       id: 'cast',
@@ -141,33 +165,20 @@ export const PROFILE: Profile = {
       sector: 'Tecnologia / Software',
       periodLabel: 'Jan 2023 — Jun 2023',
       summary:
-        'Desenvolvimento, manutenção e evolução de sistemas corporativos: análises técnicas, regras de negócio, correções e estabilidade.',
+        'Desenvolvimento, manutenção e evolução de sistemas corporativos Java: análise técnica, implementação de funcionalidades e adequação de regras de negócio. Correções e evolução de aplicações JSF/PrimeFaces/RichFaces com integração REST/SOAP.',
       technologies: ['Java', 'JavaScript', 'JSF', 'PrimeFaces', 'RichFaces', 'Oracle', 'REST', 'SOAP', 'Git', 'GitLab'],
       logoUrl: 'assets/logos/companies/cast.png',
       websiteUrl: 'https://www.castgroup.com.br/',
       cnpj: '03.143.181/0001-01',
     },
     {
-      id: 'extreme',
-      name: 'Extreme Digital Solutions',
-      shortName: 'ED',
-      sector: 'Tecnologia / Software',
-      periodLabel: 'Jul 2022 — Jan 2023',
-      summary:
-        'Full Stack em sustentação corporativa: incidentes e issues, apuração técnica, manutenção corretiva/evolutiva e melhoria de fluxos.',
-      technologies: ['Java', 'JSF', 'Angular', 'PostgreSQL', 'Docker', 'Kubernetes', 'AWS', 'RabbitMQ', 'MNI', 'REST'],
-      logoUrl: 'assets/logos/companies/extreme.png',
-      websiteUrl: 'https://www.extremedigital.com.br/',
-      cnpj: '14.139.773/0001-68',
-    },
-    {
       id: 'impulso',
       name: 'Impulso',
       shortName: 'IM',
       sector: 'Tecnologia / Software',
-      periodLabel: '2022 — 2023',
+      periodLabel: 'Jul 2022 — Jan 2023',
       summary:
-        'Aplicações de atendimento digital e automação: requisitos, implementação, testes automatizados e manuais, documentação técnica.',
+        'Desenvolvimento Full Stack de aplicações de atendimento digital e automação de processos: levantamento de requisitos, implementação de funcionalidades, testes automatizados e manuais e documentação técnica.',
       technologies: ['C#', 'ASP.NET', 'Web API', 'Angular', 'TypeScript', 'SQL Server', 'Selenium', 'xUnit', 'JUnit', 'Git', 'GitHub'],
       logoUrl: 'assets/logos/companies/impulso.png',
       websiteUrl: 'https://impulso.team/pt',
@@ -180,7 +191,7 @@ export const PROFILE: Profile = {
       sector: 'Tecnologia / Software',
       periodLabel: 'Jul 2019 — Jul 2022',
       summary:
-        'Sistemas corporativos: novas funcionalidades, manutenção corretiva/evolutiva, integração front/back e regras de negócio.',
+        'Desenvolvimento Full Stack: implementação de funcionalidades, manutenção corretiva/evolutiva e integração front-end/back-end. APIs REST e serviços com Entity Framework, aplicando DDD, SOLID e Clean Code com rastreabilidade de processos.',
       technologies: ['C#', '.NET', 'EF', 'ASP.NET', 'Angular 9', 'TypeScript', 'SQL Server', 'REST', 'SOAP', 'Git', 'GitLab'],
       logoUrl: 'assets/logos/companies/sanfir.png',
       websiteUrl: 'https://www.sanfir.com.br/',
@@ -192,7 +203,7 @@ export const PROFILE: Profile = {
       sector: 'Tecnologia / Software',
       periodLabel: 'Mar 2018 — Mai 2019',
       summary:
-        'Web, mobile e automação: análises técnicas, integração entre camadas e evolução das soluções com foco em qualidade.',
+        'Desenvolvimento e manutenção de sistemas web, mobile e automação corporativa: análises técnicas, implementação de funcionalidades e integração entre camadas front-end/back-end com Hibernate e APIs REST.',
       technologies: ['Java', 'Web API REST', 'Angular', 'SQLite', 'Oracle', 'Hibernate', 'Git', 'GitHub'],
       logoUrl: 'assets/logos/companies/codiub.svg',
       logoOnDark: true,
@@ -207,6 +218,7 @@ export const PROFILE: Profile = {
       icon: 'pi pi-desktop',
       skills: [
         { name: 'Angular', version: '18+' },
+        { name: 'React / Next.js' },
         { name: 'PrimeNG / PrimeFaces', version: '17 / 12' },
         { name: 'TypeScript & JavaScript', version: 'TS 5.x · ES2022' },
         { name: 'HTML / CSS / SCSS', version: 'HTML5 · CSS3' },
@@ -218,10 +230,24 @@ export const PROFILE: Profile = {
       title: 'Back-end & linguagens',
       icon: 'pi pi-server',
       skills: [
+        { name: 'C# / .NET / ASP.NET Core / Web API', version: '.NET 8' },
         { name: 'Java (ecossistema corporativo)', version: '17 / 21 LTS' },
-        { name: 'C# / .NET / ASP.NET / Web API', version: '.NET 8' },
         { name: 'Python', version: '3.12' },
-        { name: 'Entity Framework', version: 'EF Core 8' },
+        { name: 'Entity Framework Core', version: 'EF Core 8' },
+        { name: 'Hibernate' },
+      ],
+    },
+    {
+      categoryId: 'architecture',
+      title: 'Arquitetura & APIs',
+      icon: 'pi pi-sitemap',
+      skills: [
+        { name: 'Clean Architecture, DDD, SOLID, Clean Code' },
+        { name: 'CQRS & Event-Driven Architecture' },
+        { name: 'Microservices' },
+        { name: 'RESTful APIs & OpenAPI (Swagger)' },
+        { name: 'JWT, OAuth 2.0, OpenID Connect, gRPC' },
+        { name: 'Design Patterns' },
       ],
     },
     {
@@ -229,13 +255,15 @@ export const PROFILE: Profile = {
       title: 'Dados, integração & infra',
       icon: 'pi pi-database',
       skills: [
-        { name: 'PostgreSQL', version: '16' },
         { name: 'SQL Server', version: '2022' },
+        { name: 'PostgreSQL', version: '16' },
         { name: 'Oracle', version: '19c' },
+        { name: 'SQLite / MongoDB' },
         { name: 'REST / SOAP / MNI', version: 'SOAP 1.2 · HTTP/1.1+' },
         { name: 'Docker & Kubernetes', version: 'Docker 24 · K8s 1.29' },
         { name: 'AWS & Azure DevOps', version: 'SDKs atuais' },
-        { name: 'RabbitMQ', version: '3.13' },
+        { name: 'RabbitMQ / Apache Kafka' },
+        { name: 'CI/CD & GitHub Actions' },
       ],
     },
     {
@@ -243,12 +271,23 @@ export const PROFILE: Profile = {
       title: 'Qualidade, métodos & ferramentas',
       icon: 'pi pi-check-circle',
       skills: [
-        { name: 'Git / GitLab / GitHub', version: 'Git 2.x' },
+        { name: 'Git / GitHub / GitLab', version: 'Git 2.x' },
         { name: 'Jira & pipelines CI/CD', version: 'Cloud · Azure Pipelines' },
-        { name: 'Microsoft Azure', version: '2018–2025' },
-        { name: 'DDD, SOLID, Clean Code' },
-        { name: 'TDD & testes (JUnit, xUnit, Selenium)', version: 'JUnit 5 · xUnit · Selenium 4' },
-        { name: 'Automação RPA (visão geral)' },
+        { name: 'TDD & testes (xUnit, JUnit, Selenium)', version: 'xUnit · JUnit 5 · Selenium 4' },
+        { name: 'Scrum, Kanban, Agile' },
+        { name: 'Observabilidade (Serilog)' },
+      ],
+    },
+    {
+      categoryId: 'ai',
+      title: 'IA & LLMs',
+      icon: 'pi pi-sparkles',
+      skills: [
+        { name: 'OpenAI API / Azure OpenAI' },
+        { name: 'AI Agents & MCP (Model Context Protocol)' },
+        { name: 'Prompt Engineering & RAG' },
+        { name: 'LangChain / Semantic Kernel' },
+        { name: 'Cursor AI, Claude, GitHub Copilot, ChatGPT' },
       ],
     },
   ],
@@ -257,11 +296,11 @@ export const PROFILE: Profile = {
     {
       period: 'Set 2024 — Presente',
       title: 'Desenvolvedor sênior',
-      company: 'CLA Tecnologia (PJ)',
-      companyRef: 'cla',
-      employmentType: 'Prestação de serviços · remoto',
+      company: 'Nexion Tecnologia (PJ)',
+      companyRef: 'nexion',
+      employmentType: 'Prestação de serviços · remoto · Consultoria TOTVS (OFICINA 5)',
       description:
-        'Desenvolvimento de soluções sob demanda: análise, correção e evolução de sistemas, novas funcionalidades, integração entre sistemas e melhoria de performance em aplicações corporativas.',
+        'Desenvolvimento de soluções tecnológicas sob demanda em modelo PJ: análise, correção e evolução de sistemas corporativos, novas funcionalidades, integração entre sistemas e melhoria de performance de aplicações críticas, aplicando autenticação, autorização e boas práticas de engenharia de software.',
       icon: 'pi pi-briefcase',
       tags: ['C#', '.NET', 'EF', 'Angular', 'PrimeNG', 'PostgreSQL', 'SQL Server', 'Oracle', 'REST', 'SOAP', 'DDD', 'SOLID'],
     },
@@ -272,9 +311,20 @@ export const PROFILE: Profile = {
       companyRef: 'spassu',
       employmentType: 'Tempo integral',
       description:
-        'Sustentação e evolução de sistemas corporativos: incidentes, requisições e issues; apuração técnica, correções, soluções de contorno, manutenção corretiva e evolutiva.',
+        'Sustentação e evolução de sistemas corporativos Java e C#: incidentes, requisições e issues; apuração técnica, correções, soluções de contorno, manutenção corretiva e evolutiva, com integração via SOAP/MNI, Docker, Kubernetes, RabbitMQ, AWS e Azure DevOps.',
       icon: 'pi pi-building',
       tags: ['Java', 'Angular', 'C#', 'PostgreSQL', 'Docker', 'K8s', 'AWS', 'RabbitMQ', 'MNI', 'SOAP', 'GitLab', 'Jira'],
+    },
+    {
+      period: 'Jun 2023 — Out 2023',
+      title: 'Desenvolvedor pleno — Full Stack',
+      company: 'Extreme Digital Solutions',
+      companyRef: 'extreme',
+      employmentType: 'Tempo integral',
+      description:
+        'Sustentação e evolução de sistemas corporativos: incidentes, requisições e melhoria contínua de fluxos. Apuração técnica, correções e evoluções funcionais com integração REST/SOAP/MNI em ambiente containerizado com CI/CD.',
+      icon: 'pi pi-chart-line',
+      tags: ['Java', 'JSF', 'Angular', 'PostgreSQL', 'Docker', 'AWS', 'RabbitMQ', 'MNI', 'REST'],
     },
     {
       period: 'Jan 2023 — Jun 2023',
@@ -283,29 +333,18 @@ export const PROFILE: Profile = {
       companyRef: 'cast',
       employmentType: 'Tempo integral',
       description:
-        'Desenvolvimento, manutenção e evolução de sistemas: análises técnicas, regras de negócio, correções e evolução contínua com foco em estabilidade.',
+        'Desenvolvimento, manutenção e evolução de sistemas Java: análises técnicas, regras de negócio, correções e evolução contínua de aplicações JSF/PrimeFaces/RichFaces com foco em estabilidade.',
       icon: 'pi pi-building',
       tags: ['Java', 'JSF', 'PrimeFaces', 'RichFaces', 'Oracle', 'REST', 'SOAP', 'Git', 'GitLab'],
     },
     {
       period: 'Jul 2022 — Jan 2023',
       title: 'Desenvolvedor pleno — Full Stack',
-      company: 'Extreme Digital Solutions',
-      companyRef: 'extreme',
-      employmentType: 'Tempo integral',
-      description:
-        'Sustentação corporativa: incidentes e issues, verificação de erros, soluções de contorno, manutenção corretiva/evolutiva e melhoria de fluxos.',
-      icon: 'pi pi-chart-line',
-      tags: ['Java', 'JSF', 'Angular', 'PostgreSQL', 'Docker', 'AWS', 'RabbitMQ', 'MNI', 'REST'],
-    },
-    {
-      period: '2022 — 2023',
-      title: 'Desenvolvedor pleno — Full Stack',
       company: 'Impulso',
       companyRef: 'impulso',
       employmentType: 'Tempo integral',
       description:
-        'Atendimento digital e automação: levantamento de requisitos, implementação, testes automatizados e manuais, documentação técnica e garantia de conformidade.',
+        'Atendimento digital e automação: levantamento de requisitos, implementação, testes automatizados e manuais (Selenium, xUnit, JUnit), documentação técnica e garantia de conformidade.',
       icon: 'pi pi-send',
       tags: ['C#', 'ASP.NET', 'Angular', 'TypeScript', 'SQL Server', 'Selenium', 'xUnit', 'JUnit', 'REST', 'SOAP'],
     },
@@ -316,7 +355,7 @@ export const PROFILE: Profile = {
       companyRef: 'sanfir',
       employmentType: 'Tempo integral',
       description:
-        'Implementação de funcionalidades, manutenção corretiva e evolutiva, integração front-end e back-end e adequação de regras de negócio.',
+        'Implementação de funcionalidades, manutenção corretiva e evolutiva, integração front-end e back-end e adequação de regras de negócio, com APIs REST e Entity Framework.',
       icon: 'pi pi-box',
       tags: ['C#', '.NET', 'EF', 'Angular 9', 'TypeScript', 'SQL Server', 'REST', 'SOAP', 'Git', 'GitLab'],
     },

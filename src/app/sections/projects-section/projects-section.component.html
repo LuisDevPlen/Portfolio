@@ -1,13 +1,19 @@
-<section id="projetos" class="fp-section fp-section--muted">
+<section id="projetos" class="fp-section fp-section--surface">
   <div class="fp-container">
-    <header class="fp-section__head">
+    <header class="fp-section__head" appRevealOnScroll>
       <p class="fp-section__eyebrow">Portfólio</p>
       <h2 class="fp-section__title fp-section__title--left">Projetos em destaque</h2>
       <p class="fp-section__intro">Experiência em produto, setor público e integrações corporativas.</p>
     </header>
 
     <div class="fp-projects-grid fp-projects-grid--all" *ngIf="projects?.length">
-      <article class="fp-project" *ngFor="let p of projects">
+      <article
+        class="fp-project"
+        [class.fp-project--highlight]="p.highlight"
+        *ngFor="let p of projects; let i = index"
+        appRevealOnScroll
+        [style.transition-delay.ms]="(i % 6) * 70"
+      >
         <div class="fp-project__media" *ngIf="p.imageUrl">
           <img
             [src]="p.imageUrl"
@@ -18,6 +24,7 @@
             decoding="async"
           />
         </div>
+        <span class="fp-project__badge" *ngIf="p.highlight"><i class="pi pi-bolt" aria-hidden="true"></i>Destaque</span>
         <div class="fp-project__body">
           <h3 class="fp-project__title">{{ p.title }}</h3>
           <p class="fp-project__cat">{{ p.categoryLabel }}</p>

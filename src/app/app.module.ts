@@ -29,6 +29,7 @@ import { ExperienceSectionComponent } from './sections/experience-section/experi
 import { EducationSectionComponent } from './sections/education-section/education-section.component';
 import { ContactSectionComponent } from './sections/contact-section/contact-section.component';
 import { ProjectsSectionComponent } from './sections/projects-section/projects-section.component';
+import { RevealOnScrollDirective } from './directives/reveal-on-scroll.directive';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ProjectsSectionComponent } from './sections/projects-section/projects-s
     EducationSectionComponent,
     ContactSectionComponent,
     ProjectsSectionComponent,
+    RevealOnScrollDirective,
   ],
   imports: [
     BrowserModule,

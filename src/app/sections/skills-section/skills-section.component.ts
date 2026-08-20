@@ -1,6 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { SkillCategory } from '../../models/portfolio.model';
+import { computeInitials } from '../../models/portfolio.utils';
 import { getTechIconUrl, techIconAlt } from '../../utils/tech-icons';
+
+/** Máximo de logótipos mostrados no cabeçalho do acordeão de cada categoria. */
+const DEFAULT_TECH_PREVIEW_LIMIT = 5;
 
 export interface TechPreview {
   name: string;
@@ -24,7 +28,7 @@ export class SkillsSectionComponent {
   }
 
   /** Logos para o cabeçalho do acordeão (stack visual). */
-  categoryTechPreview(group: SkillCategory, max = 5): TechPreview[] {
+  categoryTechPreview(group: SkillCategory, max = DEFAULT_TECH_PREVIEW_LIMIT): TechPreview[] {
     const out: TechPreview[] = [];
     for (const s of group.skills || []) {
       const url = getTechIconUrl(s.name);
@@ -39,14 +43,6 @@ export class SkillsSectionComponent {
   }
 
   initials(skillName: string): string {
-    const t = skillName.replace(/\([^)]*\)/g, '').trim();
-    const parts = t.split(/\s+/).filter(Boolean);
-    if (parts.length === 0) {
-      return '?';
-    }
-    if (parts.length === 1) {
-      return parts[0].slice(0, 2).toUpperCase();
-    }
-    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+    return computeInitials(skillName, true);
   }
 }

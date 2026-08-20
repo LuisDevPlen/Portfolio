@@ -1,8 +1,10 @@
 <section id="skills" class="section folio-section folio-section--skills folio-section--enterprise folio-section--spacious">
   <div class="layout-container">
-    <p class="folio-section-eyebrow">Competências</p>
-    <h2 class="folio-section-title">Stack e versões</h2>
-    <p class="folio-section-lead" *ngIf="skillsIntro">{{ skillsIntro }}</p>
+    <div appRevealOnScroll>
+      <p class="folio-section-eyebrow">Competências</p>
+      <h2 class="folio-section-title">Stack e versões</h2>
+      <p class="folio-section-lead" *ngIf="skillsIntro">{{ skillsIntro }}</p>
+    </div>
 
     <p-accordion [multiple]="true" styleClass="folio-skills-accordion folio-skills-accordion--rich">
       <p-accordionTab *ngFor="let group of categories">
@@ -28,7 +30,13 @@
           </span>
         </ng-template>
         <ul class="folio-skill-tiles">
-          <li *ngFor="let s of group.skills" class="folio-skill-tile folio-interactive-card" tabindex="0">
+          <li
+            *ngFor="let s of group.skills; let i = index"
+            class="folio-skill-tile folio-interactive-card"
+            tabindex="0"
+            appRevealOnScroll
+            [style.transition-delay.ms]="(i % 8) * 50"
+          >
             <div class="folio-skill-tile__brand">
               <img
                 *ngIf="techUrl(s.name) as url"

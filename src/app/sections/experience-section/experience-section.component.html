@@ -1,10 +1,18 @@
 <section id="experiencia" class="section folio-section folio-section--alt folio-section--enterprise folio-section--spacious">
   <div class="layout-container">
-    <p class="folio-section-eyebrow">Experiência</p>
-    <h2 class="folio-section-title">Trajetória profissional</h2>
+    <div appRevealOnScroll>
+      <p class="folio-section-eyebrow">Experiência</p>
+      <h2 class="folio-section-title">Trajetória profissional</h2>
+    </div>
 
     <div class="folio-exp-grid folio-exp-grid--enterprise" role="list" aria-label="Experiências profissionais">
-      <article class="folio-exp-grid__cell" *ngFor="let exp of experiences" role="listitem">
+      <article
+        class="folio-exp-grid__cell"
+        *ngFor="let exp of experiences; let i = index"
+        role="listitem"
+        appRevealOnScroll
+        [style.transition-delay.ms]="(i % 6) * 70"
+      >
         <p-card styleClass="folio-exp-card folio-exp-card--enterprise folio-interactive-card">
           <div class="folio-exp-card__head">
             <div class="folio-exp-card__titles">

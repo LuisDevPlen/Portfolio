@@ -20,6 +20,7 @@
           <a
             *ngFor="let link of navLinks"
             class="fp-header__link"
+            [class.fp-header__link--active]="activeSectionId === link.id"
             [href]="'#' + link.id"
             (click)="scrollTo(link.id); $event.preventDefault()"
             >{{ link.label }}</a
@@ -48,6 +49,7 @@
         [icon]="link.icon"
         [label]="link.label"
         class="p-button-text folio-sidebar-link"
+        [class.folio-sidebar-link--active]="activeSectionId === link.id"
         (click)="scrollTo(link.id)"
       ></button>
     </div>

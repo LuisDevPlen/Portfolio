@@ -1,10 +1,17 @@
-<section id="formacao" class="section folio-section folio-section--enterprise folio-section--spacious">
+<section id="formacao" class="section folio-section folio-section--alt folio-section--enterprise folio-section--spacious">
   <div class="layout-container">
-    <p class="folio-section-eyebrow">Formação</p>
-    <h2 class="folio-section-title">Educação e certificações</h2>
+    <div appRevealOnScroll>
+      <p class="folio-section-eyebrow">Formação</p>
+      <h2 class="folio-section-title">Educação e certificações</h2>
+    </div>
 
     <div class="folio-edu-list folio-edu-list--enterprise">
-      <p-card *ngFor="let ed of education" styleClass="folio-edu-card folio-edu-card--enterprise folio-interactive-card">
+      <p-card
+        *ngFor="let ed of education; let i = index"
+        styleClass="folio-edu-card folio-edu-card--enterprise folio-interactive-card"
+        appRevealOnScroll
+        [style.transition-delay.ms]="(i % 6) * 70"
+      >
         <div class="folio-edu-card__inner">
           <div
             class="folio-edu-card__icon"

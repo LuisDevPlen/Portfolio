@@ -1,15 +1,19 @@
-<section id="empresas" class="section folio-section folio-section--enterprise folio-section--spacious">
+<section id="empresas" class="section folio-section folio-section--surface folio-section--enterprise folio-section--spacious">
   <div class="layout-container">
-    <p class="folio-section-eyebrow">Organizações</p>
-    <h2 class="folio-section-title">Experiência em contexto corporativo</h2>
-    <p class="folio-section-lead">
-      Organizações onde colaborei, com foco no impacto e no ecossistema tecnológico.
-    </p>
+    <div appRevealOnScroll>
+      <p class="folio-section-eyebrow">Organizações</p>
+      <h2 class="folio-section-title">Experiência em contexto corporativo</h2>
+      <p class="folio-section-lead">
+        Organizações onde colaborei, com foco no impacto e no ecossistema tecnológico.
+      </p>
+    </div>
 
     <div class="folio-companies-stack">
       <p-card
-        *ngFor="let c of companies"
+        *ngFor="let c of companies; let i = index"
         styleClass="folio-company-card folio-company-card--enterprise folio-interactive-card"
+        appRevealOnScroll
+        [style.transition-delay.ms]="(i % 6) * 70"
       >
         <div class="folio-company-card__top">
           <div
