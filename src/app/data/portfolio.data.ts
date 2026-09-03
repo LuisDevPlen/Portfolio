@@ -134,13 +134,15 @@ export const PROFILE: Profile = {
   companies: [
     {
       id: 'nexion',
-      name: 'Nexion Tecnologia',
-      shortName: 'NX',
-      sector: 'Prestação de serviços · PJ · Consultoria TOTVS (OFICINA 5)',
+      name: 'Oficina 5',
+      shortName: 'O5',
+      sector: 'Prestação de serviços · PJ · Consultoria TOTVS',
       periodLabel: 'Set 2024 — Presente',
       summary:
         'Soluções tecnológicas sob demanda em modelo PJ: análise, correção e evolução de sistemas corporativos, novas funcionalidades, integração entre sistemas e melhoria de performance, aplicando autenticação, autorização e boas práticas de engenharia de software.',
       technologies: ['C#', '.NET', 'EF', 'Angular', 'PrimeNG', 'PostgreSQL', 'SQL Server', 'Oracle', 'REST', 'SOAP', 'CI/CD', 'Git', 'GitLab', 'Jira'],
+      websiteUrl: 'https://oficina5.com.br',
+      logoUrl: 'assets/logos/companies/oficina5.png',
     },
     {
       id: 'spassu',
@@ -309,9 +311,9 @@ export const PROFILE: Profile = {
     {
       period: 'Set 2024 — Presente',
       title: 'Desenvolvedor sênior',
-      company: 'Nexion Tecnologia (PJ)',
+      company: 'Oficina 5 (PJ)',
       companyRef: 'nexion',
-      employmentType: 'Prestação de serviços · remoto · Consultoria TOTVS (OFICINA 5)',
+      employmentType: 'Prestação de serviços · remoto · Consultoria TOTVS',
       description:
         'Desenvolvimento de soluções tecnológicas sob demanda em modelo PJ: análise, correção e evolução de sistemas corporativos, novas funcionalidades, integração entre sistemas e melhoria de performance de aplicações críticas, aplicando autenticação, autorização e boas práticas de engenharia de software.',
       icon: 'pi pi-briefcase',
