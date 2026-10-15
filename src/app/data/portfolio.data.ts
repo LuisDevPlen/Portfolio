@@ -137,7 +137,7 @@ export const PROFILE: Profile = {
       name: 'Oficina 5',
       shortName: 'O5',
       sector: 'Prestação de serviços · PJ · Consultoria TOTVS',
-      periodLabel: 'Set 2024 — Presente',
+      periodLabel: 'Set 2024 — Out 2026',
       summary:
         'Soluções tecnológicas sob demanda em modelo PJ: análise, correção e evolução de sistemas corporativos, novas funcionalidades, integração entre sistemas e melhoria de performance, aplicando autenticação, autorização e boas práticas de engenharia de software.',
       technologies: ['C#', '.NET', 'EF', 'Angular', 'PrimeNG', 'PostgreSQL', 'SQL Server', 'Oracle', 'REST', 'SOAP', 'CI/CD', 'Git', 'GitLab', 'Jira'],
@@ -245,6 +245,7 @@ export const PROFILE: Profile = {
         { name: 'C# / .NET / ASP.NET Core / Web API', version: '.NET 8' },
         { name: 'Java (ecossistema corporativo)', version: '17 / 21 LTS' },
         { name: 'Python', version: '3.12' },
+        { name: 'PHP', version: '8.2 – 8.5' },
         { name: 'Entity Framework Core', version: 'EF Core 8' },
         { name: 'Hibernate' },
       ],
@@ -297,7 +298,9 @@ export const PROFILE: Profile = {
       skills: [
         { name: 'OpenAI API / Azure OpenAI' },
         { name: 'AI Agents & MCP (Model Context Protocol)' },
-        { name: 'Prompt Engineering & RAG' },
+        { name: 'RAG (Retrieval-Augmented Generation)' },
+        { name: 'Fine-tuning de LLMs' },
+        { name: 'Prompt Engineering' },
         { name: 'LangChain / Semantic Kernel' },
         { name: 'Cursor AI' },
         { name: 'Claude' },
@@ -309,7 +312,7 @@ export const PROFILE: Profile = {
 
   experiences: [
     {
-      period: 'Set 2024 — Presente',
+      period: 'Set 2024 — Out 2026',
       title: 'Desenvolvedor sênior',
       company: 'Oficina 5 (PJ)',
       companyRef: 'nexion',
